@@ -14,7 +14,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/create")
-    public ResponseDto<UserDto> create(@ModelAttribute UserDto dto){
+    public ResponseDto<UserDto> create(@RequestBody UserDto dto){
         return userService.create(dto);
     }
 
@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseDto<UserDto> update(@PathVariable("id") Integer id,@ModelAttribute UserDto dto){
+    public ResponseDto<UserDto> update(@PathVariable("id") Integer id,@RequestBody UserDto dto){
         return  userService.update(id,dto);
     }
 

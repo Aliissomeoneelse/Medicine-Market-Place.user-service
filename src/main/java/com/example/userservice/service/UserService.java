@@ -22,7 +22,7 @@ public class UserService {
         try {
             User user = userMapper.toEntity(dto);
             user.setCreatedAt(LocalDateTime.now());
-            userRepository.save(user);
+            this.userRepository.save(user);
             return ResponseDto.<UserDto>builder()
                     .success(true)
                     .message("User successful created!")

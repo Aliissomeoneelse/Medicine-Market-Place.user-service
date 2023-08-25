@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-
 public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "select * from users where deleted_at is null and id = :id", nativeQuery = true)
     Optional<User> findByIdAndDeletedAtIsNull(@Param(value = "id") Integer id);
