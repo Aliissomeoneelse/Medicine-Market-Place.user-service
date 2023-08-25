@@ -1,9 +1,10 @@
 package com.example.userservice.dto;
 
+
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 
@@ -11,8 +12,6 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
     private Integer id;
     @NotBlank(message = "First name cannot be null or empty")
