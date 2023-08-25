@@ -11,8 +11,8 @@ import java.util.Set;
 @FeignClient(name = "file-service", path = "/file")
 public interface FileClient {
 
-    @GetMapping(value = "/get/{id}")
-    ResponseDto<FileDto> getFiles(@PathVariable(value = "id") Integer id);
+    @GetMapping(value = "/download/{id}")
+    ResponseDto<FileDto> download(@PathVariable(value = "id") Integer id);
 
     @GetMapping(value = "/get-files-by-user/{id}")
     ResponseDto<Set<FileDto>> getFilesByUsersId(@PathVariable("id") Integer id);

@@ -14,23 +14,23 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/create")
-    public ResponseDto<UserDto> create(@RequestBody UserDto dto){
+    public ResponseDto<UserDto> create(@RequestBody UserDto dto) {
         return userService.create(dto);
     }
 
     @GetMapping("/get/{id}")
-    public ResponseDto<UserDto> get(@PathVariable("id") Integer id){
+    public ResponseDto<UserDto> get(@PathVariable("id") Integer id) {
         return userService.get(id);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseDto<UserDto> update(@PathVariable("id") Integer id,@RequestBody UserDto dto){
-        return  userService.update(id,dto);
+    public ResponseDto<UserDto> update(@PathVariable("id") Integer id, @RequestBody UserDto dto) {
+        return userService.update(id, dto);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseDto<UserDto> delete(@PathVariable("id") Integer id){
-        return  userService.delete(id);
+    public ResponseDto<UserDto> delete(@PathVariable("id") Integer id) {
+        return userService.delete(id);
     }
 
 }
