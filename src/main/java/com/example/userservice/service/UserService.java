@@ -48,7 +48,7 @@ public class UserService {
         return ResponseDto.<UserDto>builder()
                 .success(true)
                 .message("OK")
-                .data(userMapper.toDto(optional.get()))
+                .data(userMapper.toDtoWithFile(optional.get()))
                 .build();
     }
 

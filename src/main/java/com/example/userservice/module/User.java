@@ -23,7 +23,6 @@ public class User {
     private Integer age;
     private String phone;
     //we should do access to type of users(admin/ordinary users)
-    @Column(name = "user_type")
     private String userType;
     private String address;
     private String gender;
@@ -33,11 +32,8 @@ public class User {
     //upload photos of passport and bank card
     //result id - we should come with the api of results class
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
 }

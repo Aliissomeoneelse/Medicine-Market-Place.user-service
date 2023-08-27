@@ -14,10 +14,10 @@
     <name>user-service</name>
     <description>user-service</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <lombok.version>1.18.24</lombok.version>
-        <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <spring-cloud.version>2022.0.3</spring-cloud.version>
     </properties>
     <dependencies>
 
