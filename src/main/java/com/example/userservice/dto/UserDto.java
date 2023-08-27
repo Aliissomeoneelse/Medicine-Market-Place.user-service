@@ -3,9 +3,9 @@ package com.example.userservice.dto;
 
 import com.example.userservice.client.dto.FileDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Set;
 

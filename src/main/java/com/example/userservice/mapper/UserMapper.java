@@ -4,12 +4,12 @@ import com.example.userservice.client.service.FileClient;
 import com.example.userservice.dto.UserDto;
 import com.example.userservice.module.User;
 import org.mapstruct.*;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@Component
 @Mapper(componentModel = "spring")
 public abstract class UserMapper {
 
+    @Autowired
     protected FileClient fileClient;
 
     @Mapping(target = "id", ignore = true)

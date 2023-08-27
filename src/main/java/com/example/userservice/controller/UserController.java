@@ -1,10 +1,12 @@
 package com.example.userservice.controller;
 
+import com.example.userservice.client.service.FileClient;
 import com.example.userservice.dto.ResponseDto;
 import com.example.userservice.dto.UserDto;
 import com.example.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("user")

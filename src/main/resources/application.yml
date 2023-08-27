@@ -9,6 +9,9 @@ spring:
       label: dev/Alisher
   config:
     import: optional:configserver:http://localhost:8888/
+  jpa:
+    properties:
+      jakarta.persistence.validation.mode: none
 
 eureka:
   client:

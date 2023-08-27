@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 
-@FeignClient(name = "file-service", path = "/file")
+@FeignClient(name = "file-service", path = "/file-service/file")
 public interface FileClient {
 
     @GetMapping(value = "/get-files-by-user/{id}")
