@@ -6,8 +6,6 @@ import com.example.userservice.module.User;
 import org.mapstruct.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Set;
-
 @Mapper(componentModel = "spring")
 public abstract class UserMapper {
 
