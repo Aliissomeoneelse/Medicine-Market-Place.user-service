@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -48,7 +50,40 @@ public class UserService {
         return ResponseDto.<UserDto>builder()
                 .success(true)
                 .message("OK")
+                .data(userMapper.toDto(optional.get()))
+                .build();
+    }
+
+    public ResponseDto<UserDto> getWithFiles(Integer id) {
+        Optional<User> optional = userRepository.findByIdAndDeletedAtIsNull(id);
+        if (optional.isEmpty()) {
+            return ResponseDto.<UserDto>builder()
+                    .message("User is not found!")
+                    .code(-3)
+                    .data(null)
+                    .build();
+        }
+        return ResponseDto.<UserDto>builder()
+                .success(true)
+                .message("OK")
                 .data(userMapper.toDtoWithFile(optional.get()))
+                .build();
+    }
+
+    public ResponseDto<Set<UserDto>> getUserByOrdersId(Integer id) {
+        Set<User> users = userRepository.findAllByOrdersIdAndDeletedAtIsNull(id);
+        if(users.isEmpty()){
+            return ResponseDto.<Set<UserDto>>builder()
+                    .message("Users are not found!")
+                    .code(-3)
+                    .data(null)
+                    .build();
+        }
+        return ResponseDto.<Set<UserDto>>builder()
+                .success(true)
+                .message("OK")
+                //to transfer Set<User> to Set<UserDto>
+                .data(users.stream().map(userMapper::toDto).collect(Collectors.toSet()))
                 .build();
     }
 
@@ -62,7 +97,8 @@ public class UserService {
                     .build();
         }
         try {
-            User user = userMapper.updateUsersFromDto(dto, optional.get());
+            User user =optional.get();
+            userMapper.updateUsersFromDto(dto, optional.get());
             user.setId(optional.get().getId());
             user.setUpdatedAt(LocalDateTime.now());
             userRepository.save(user);

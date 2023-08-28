@@ -16,6 +16,8 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
     private Integer id;
+    //ordersId
+    private Integer ordersId;
     @NotBlank(message = "First name cannot be null or empty")
     private String firstname;
     private String lastname;

@@ -1,11 +1,12 @@
 package com.example.userservice.controller;
 
-import com.example.userservice.client.service.FileClient;
 import com.example.userservice.dto.ResponseDto;
 import com.example.userservice.dto.UserDto;
 import com.example.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 
 @RestController
@@ -23,6 +24,16 @@ public class UserController {
     @GetMapping("/get/{id}")
     public ResponseDto<UserDto> get(@PathVariable("id") Integer id) {
         return userService.get(id);
+    }
+
+    @GetMapping("/get-with-files/{id}")
+    public ResponseDto<UserDto> getWithFiles(@PathVariable("id") Integer id) {
+        return userService.getWithFiles(id);
+    }
+
+    @GetMapping(value = "/get-user-by-orders/{id}")
+    public ResponseDto<Set<UserDto>> getUserByOrdersId(@PathVariable("id") Integer id){
+        return userService.getUserByOrdersId(id);
     }
 
     @PutMapping("/update/{id}")

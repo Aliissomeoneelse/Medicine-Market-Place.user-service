@@ -18,6 +18,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    //ordersId
+    private Integer ordersId;
+
     private String firstname;
     private String lastname;
     private Integer age;
