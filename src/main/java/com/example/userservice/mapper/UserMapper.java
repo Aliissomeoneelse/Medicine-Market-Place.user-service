@@ -38,6 +38,7 @@ public abstract class UserMapper {
     @Mapping(target = "files", expression = ("java(fileClient.getFilesByUsersId(user.getId()).getData())"))
     public abstract UserDto toDtoWithFile(User user);
 
+    @Mapping(target = "files", ignore = true)
     @Mapping(target = "credit", expression = ("java(creditClient.getCreditByUserId(user.getId()).getData())"))
     public abstract UserDto toDtoWithCredit(User user);
 //    public abstract Set<UserDto> toSetDto(Set<User> users);
