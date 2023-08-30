@@ -31,8 +31,13 @@ public class UserController {
         return userService.getWithFiles(id);
     }
 
+    @GetMapping("/get-with-credit/{id}")
+    public ResponseDto<UserDto> getWithCredit(@PathVariable(value = "id") Integer id) {
+        return userService.getWithCredit(id);
+    }
+
     @GetMapping(value = "/get-user-by-orders/{id}")
-    public ResponseDto<Set<UserDto>> getUserByOrdersId(@PathVariable("id") Integer id){
+    public ResponseDto<Set<UserDto>> getUserByOrdersId(@PathVariable("id") Integer id) {
         return userService.getUserByOrdersId(id);
     }
 

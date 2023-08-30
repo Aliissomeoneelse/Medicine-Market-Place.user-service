@@ -1,11 +1,13 @@
 package com.example.userservice.dto;
 
 
+import com.example.userservice.client.dto.CreditDto;
 import com.example.userservice.client.dto.FileDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -31,7 +33,7 @@ public class UserDto {
     private String email;
 
     private Set<FileDto> files;
-
+    private Set<CreditDto> credit;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;

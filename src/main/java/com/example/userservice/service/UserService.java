@@ -141,4 +141,29 @@ public class UserService {
         }
     }
 
+    public ResponseDto<UserDto> getWithCredit(Integer id) {
+       /* return userRepository.findByIdAndDeletedAtIsNull(id)
+                .map(u -> ResponseDto.<UserDto>builder()
+                        .data(userMapper.toDtoWithCredit(u))
+                        .message("Ok")
+                        .success(true)
+                        .build())
+                .orElse(ResponseDto.<UserDto>builder()
+                        .message("User is not found!")
+                        .code(-1)
+                        .build());*/
+        Optional<User> optional =this.userRepository.findByIdAndDeletedAtIsNull(id);
+        if (optional.isEmpty()) {
+            return ResponseDto.<UserDto>builder()
+                    .message("User is not found!")
+                    .code(-3)
+                    .data(null)
+                    .build();
+        }
+        return ResponseDto.<UserDto>builder()
+                .success(true)
+                .message("OK")
+                .data(userMapper.toDtoWithCredit(optional.get()))
+                .build();
+    }
 }
