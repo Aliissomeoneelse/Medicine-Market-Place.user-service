@@ -31,7 +31,7 @@ public class UserDto {
     private String gender;
     private String username;
     private String email;
-
+    private Integer ratingId;
     private Set<FileDto> files;
     private Set<CreditDto> credit;
     private LocalDateTime createdAt;

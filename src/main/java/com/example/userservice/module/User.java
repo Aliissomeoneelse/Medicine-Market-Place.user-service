@@ -31,6 +31,7 @@ public class User {
     private String gender;
     private String username;
     private String email;
+    private Integer ratingId;
 
     //upload photos of passport and bank card
     //result id - we should come with the api of results class

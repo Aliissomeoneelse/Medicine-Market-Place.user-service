@@ -166,4 +166,12 @@ public class UserService {
                 .data(userMapper.toDtoWithCredit(optional.get()))
                 .build();
     }
+
+    public ResponseDto<Set<UserDto>> getUserByRatingId(Integer id) {
+        return ResponseDto.<Set<UserDto>>builder()
+                .message("Ok")
+                .success(true)
+                .data(userRepository.findAllByRatingIdAndDeletedAtIsNull(id).stream().map(userMapper::toDto).collect(Collectors.toSet()))
+                .build();
+    }
 }

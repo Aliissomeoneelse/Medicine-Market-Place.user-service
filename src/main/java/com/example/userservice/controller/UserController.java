@@ -50,5 +50,9 @@ public class UserController {
     public ResponseDto<UserDto> delete(@PathVariable("id") Integer id) {
         return userService.delete(id);
     }
+    @GetMapping(value = "/get-user-by-rating/{id}")
+    ResponseDto<Set<UserDto>> getUserByRatingId(@PathVariable("id") Integer id){
+        return this.userService.getUserByRatingId(id);
+    }
 
 }

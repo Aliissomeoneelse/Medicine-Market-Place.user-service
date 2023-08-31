@@ -21,5 +21,4 @@ public class ResponseDto<T> {
 
     private T data;
 
-    private List<ErrorDto> errors;
 }

@@ -15,4 +15,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByIdAndDeletedAtIsNull(@Param(value = "id") Integer id);
 
     Set<User> findAllByOrdersIdAndDeletedAtIsNull(Integer ordersId);
+    Set<User> findAllByRatingIdAndDeletedAtIsNull(Integer id);
 }
